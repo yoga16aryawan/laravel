@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return view('welcome');
+    }
+
+    return redirect("login")->withSuccess('You are not allowed to access');
 });
 
-Route::get('login', [Login::class, 'index']);
+Route::get('login', [Login::class, 'index'])->name('halaman.login');
+Route::post('loginproses', [Login::class, 'loginproses'])->name('proses.login');
+Route::get('registrasi', [Login::class, 'registrasi'])->name('halaman.registrasi');
+Route::post('registrasiproses', [Login::class, 'registrasiproses'])->name('proses.registrasi');
+Route::get('dashboard', [Login::class, 'dashboard'])->name('dashboard');
+Route::get('logout', [Login::class, 'logout'])->name('proses.logout');

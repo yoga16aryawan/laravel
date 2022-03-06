@@ -1,25 +1,40 @@
 @extends('layout.master')
 
-@section('title','Projek-Login')
+@section('title','Registrasi User')
 
 @section('content')
 <section class="hero is-primary is-fullheight">
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                <div class="column is-5-tablet is-4-desktop is-5-widescreen">
                     @include('notification')
-                    <form method="POST" action="{{ route('proses.login') }}" class="box">
+                    <form method="POST" action="{{ route('proses.registrasi') }}" class="box">
                         @csrf
-                        <div class="column">
-                            <img src="images/cash_drawer.jpg" alt="">
+                        <div class="field">
+                            <label for="" class="label">Nama</label>
+                            <div class="control has-icons-left">
+                                <input type="text" id="name" name="name" placeholder="nama anda" class="input" required autofocus>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
                         </div>
                         <div class="field">
                             <label for="" class="label">Username</label>
                             <div class="control has-icons-left">
-                                <input type="text" id="username" name="username" placeholder="username anda" class="input" required autofocus>
+                                <input type="text" id="username" name="username" placeholder="username yang ada inginkan" class="input" required autofocus>
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Email</label>
+                            <div class="control has-icons-left">
+                                <input type="text" id="email" name="email" placeholder="ex. youremail@gmail.com" class="input" required autofocus>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
                                 </span>
                             </div>
                         </div>
@@ -33,14 +48,8 @@
                             </div>
                         </div>
                         <div class="field">
-                            <label for="" class="checkbox">
-                                <input type="checkbox">
-                                Remember me
-                            </label>
-                        </div>
-                        <div class="field">
                             <button type="submit" class="button is-success">
-                                Login
+                                Registrasi
                             </button>
                         </div>
                     </form>
